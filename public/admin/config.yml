@@ -6,7 +6,7 @@ backend:
     name: "github"
     repo: plboilingNL/astros-maki
     branch: main
-    base_url: https://makiorganizacja.nl
+    base_url: astros-maki.plboiling.workers.dev
     automatic_deployments: false
 
 media_folder: "public/images"
