@@ -6,7 +6,7 @@ backend:
     name: "github"
     repo: plboilingNL/astros-maki
     branch: main
-    base_url: https://sveltia-cms-auth.plboiling.workers.dev
+    base_url: https://makiorganizacja.nl
     automatic_deployments: false
 
 media_folder: "public/images"
