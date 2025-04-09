@@ -62,7 +62,7 @@ export default defineConfig({
     },
   }),
   integrations: [
-    sveltiaCms({ oauthDisabled: true }),
+    sveltiaCms(),
     // decapCmsOauth({
     //   decapCMSSrcUrl: "https://unpkg.com/@sveltia/cms/dist/sveltia-cms.js",
     // }),
