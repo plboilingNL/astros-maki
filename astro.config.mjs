@@ -17,6 +17,7 @@ dotenv.config();
 // https://astro.build/config
 export default defineConfig({
   site: process.env.SITE_URL,
+  // output: "server", // Removed to avoid conflict with the later definition
   vite: {
     define: {
       __DATE__: `'${new Date().toISOString()}'`,
@@ -44,15 +45,15 @@ export default defineConfig({
   },
   env: {
     schema: {
-      SITE_URL: envField.string({
-        context: "client",
-        access: "public",
-        optional: true,
-      }),
+      // SITE_URL: envField.string({
+      //   context: "client",
+      //   access: "public",
+      //   optional: true,
+      // }),
     },
   },
 
-  output: "static",
+  output: "server",
   adapter: cloudflare({
     mode: "directory",
     platformProxy: {
@@ -61,10 +62,10 @@ export default defineConfig({
     },
   }),
   integrations: [
-    sveltiaCms(),
-    decapCmsOauth({
-      decapCMSSrcUrl: "https://unpkg.com/@sveltia/cms/dist/sveltia-cms.js",
-    }),
+    sveltiaCms({ oauthDisabled: true }),
+    // decapCmsOauth({
+    //   decapCMSSrcUrl: "https://unpkg.com/@sveltia/cms/dist/sveltia-cms.js",
+    // }),
     tailwind(),
     sitemap(),
     astroI18next(),
