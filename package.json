@@ -17,6 +17,7 @@
 	},
 	"dependencies": {
 		"@astrojs/alpinejs": "^0.4.0",
+		"@astrojs/cloudflare": "^12.4.0",
 		"@astrojs/rss": "^4.0.5",
 		"@astrojs/sitemap": "^3.1.2",
 		"@astrojs/tailwind": "^5.1.0",
@@ -24,6 +25,7 @@
 		"@types/alpinejs": "^3.13.10",
 		"alpinejs": "^3.13.7",
 		"astro": "^4.5.12",
+		"astro-decap-cms-oauth": "^0.5.1",
 		"astro-i18next": "^1.0.0-beta.21",
 		"astro-icon": "^1.1.0",
 		"astro-seo": "^0.8.3",
@@ -49,6 +51,7 @@
 		"@vite-pwa/astro": "^0.3.1",
 		"rehype": "^13.0.1",
 		"sharp": "^0.33.3",
-		"workbox-window": "^7.0.0"
+		"workbox-window": "^7.0.0",
+		"wrangler": "^4.9.1"
 	}
 }

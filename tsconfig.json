@@ -1,16 +1,18 @@
 {
-	"extends": "astro/tsconfigs/base",
-	"compilerOptions": {
-		"strictNullChecks": true,
-		"baseUrl": "src",
-		"paths": {
-			"@lib/*": ["lib/*"],
-			"@utils/*": ["utils/*"],
-			"@components/*": ["components/*"],
-			"@layouts/*": ["layouts/*"],
-			"@assets/*": ["assets/*"],
-			"@pages/*": ["pages/*"]
-		},
-		"types": ["vite-plugin-pwa/info"]
-	}
+  "extends": "astro/tsconfigs/base",
+  "include": [".astro/types.d.ts", "**/*"],
+  "exclude": ["dist"],
+  "compilerOptions": {
+    "strictNullChecks": true,
+    "baseUrl": "src",
+    "paths": {
+      "@lib/*": ["lib/*"],
+      "@utils/*": ["utils/*"],
+      "@components/*": ["components/*"],
+      "@layouts/*": ["layouts/*"],
+      "@assets/*": ["assets/*"],
+      "@pages/*": ["pages/*"]
+    },
+    "types": ["vite-plugin-pwa/info", "@cloudflare/workers-types/2023-07-01"]
+  }
 }

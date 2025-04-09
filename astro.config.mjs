@@ -9,19 +9,57 @@ import alpinejs from "@astrojs/alpinejs";
 import AstroPWA from "@vite-pwa/astro";
 import icon from "astro-icon";
 import sveltiaCms from "astro-sveltia-cms";
-import decapCmsOauth from "astro-decap-cms-oauth";
-import { sveltiaCmsConfig } from "./sveltia-cms.config";
-import { sveltiaCmsOauthConfig } from "./sveltia-cms-oauth.config";
+// import decapCmsOauth from "astro-decap-cms-oauth";
+import cloudflare from "@astrojs/cloudflare";
+import dotenv from "dotenv";
+dotenv.config();
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://makiorganizacja.nl",
+  site: process.env.SITE_URL,
   vite: {
     define: {
       __DATE__: `'${new Date().toISOString()}'`,
     },
+    ssr: {
+      noExternal: ["dotenv", "@astrojs/cloudflare"],
+      target: "webworker",
+      external: [
+        "path",
+        "fs",
+        "url",
+        "module",
+        "crypto",
+        "os",
+        "child_process",
+        "util",
+        "net",
+      ],
+    },
+    resolve: {
+      alias: {
+        "@": "/src",
+      },
+    },
   },
-  output: "server", //
+  env: {
+    schema: {
+      SITE_URL: envField.string({
+        context: "client",
+        access: "public",
+        optional: true,
+      }),
+    },
+  },
+
+  output: "static",
+  adapter: cloudflare({
+    mode: "directory",
+    platformProxy: {
+      enabled: true,
+      configPath: "./wrangler.toml",
+    },
+  }),
   integrations: [
     sveltiaCms(),
     decapCmsOauth({
