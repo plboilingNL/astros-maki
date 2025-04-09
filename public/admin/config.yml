@@ -3,11 +3,12 @@ local_backend: true
 logo_url: /logo.svg
 
 backend:
-  name: "github"
-  repo: plboilingNL/astros-maki
-  branch: main
-  base_url: astros-maki.plboiling.workers.dev
-  automatic_deployments: false
+  name: github
+  branch: main # change this to your branch
+  repo: plboilingNL/astros-maki # change this to your repo
+  site_domain: makiorganizacja.nl # change this to your domain
+  base_url: https://makiorganizacja.nl # change this to your prod URL
+  auth_endpoint: oauth # the oauth route provided by the integration
 
 media_folder: "public/images"
 public_folder: "/images"
