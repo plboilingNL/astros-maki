@@ -7,12 +7,12 @@ import Newsletter from "@components/newsletter.astro";
 import Layout from "@layouts/Layout.astro";
 import { changeLanguage } from "i18next";
 
-changeLanguage("it");
+changeLanguage("nl");
 ---
 
 <Layout>
 	<Container>
-		<Hero />
+		<Hero dynamic={true} />
 		<Features />
 		<Faq />
 		<Newsletter />
