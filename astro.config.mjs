@@ -9,6 +9,9 @@ import alpinejs from "@astrojs/alpinejs";
 import AstroPWA from "@vite-pwa/astro";
 import icon from "astro-icon";
 import sveltiaCms from "astro-sveltia-cms";
+import decapCmsOauth from "astro-decap-cms-oauth";
+import { sveltiaCmsConfig } from "./sveltia-cms.config";
+import { sveltiaCmsOauthConfig } from "./sveltia-cms-oauth.config";
 
 // https://astro.build/config
 export default defineConfig({
